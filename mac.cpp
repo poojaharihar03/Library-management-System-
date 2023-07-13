@@ -6,7 +6,12 @@
 #include <sstream>
 #include <ctime>
 #include <vector>
-
+// Color codes
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
 using namespace std;
 /*------------------------- class student ----------------------*/
 class student
@@ -1054,9 +1059,9 @@ mainpage:
     {
         int sch, nch, rch;
         string username = "admin", password = "admin", u, p;
-        cout << "\n\t******* LIBRARY MANAGEMENT USING PRIMARY INDEX *******\n";
-        cout << "\n\t\tEnter \n\t\t1. Admin\n\t\t2. Student\n\t\t3. librarian\n\t\t0. Exit\n";
-        cout << "\nEnter your choice\n";
+        cout << RED << "\n\t******* LIBRARY MANAGEMENT USING PRIMARY INDEX *******\n";
+        cout << YELLOW << "\n\t\tEnter \n\t\t1. Admin\n\t\t2. Student\n\t\t3. librarian\n\t\t0. Exit\n";
+        cout << GREEN << "\nEnter your choice\n";
         cin >> ch;
         switch (ch)
         {
@@ -1068,16 +1073,16 @@ mainpage:
             if (u == username && p == password)
             {
                 int ach;
-                cout << "\nWelcome Admin\n";
+                cout << GREEN << "\nWelcome Admin\n";
             admin:
                 while (1)
                 {
 
-                    cout << "----------------------\n";
-                    cout << "|   ADMIN SECTION     |\n";
-                    cout << "----------------------\n";
-                    cout << "\n1.student\t\t2.librarian\n3.book\t\n\n\t\t\t(0) <<-- BACK\n";
-                    cout << "\nEnter your choice\n";
+                    cout << RED << "----------------------\n";
+                    cout << RED << "|   ADMIN SECTION     |\n";
+                    cout << RED << "----------------------\n";
+                    cout << GREEN << "\n1.student\t\t2.librarian\n3.book\t\n\n\t\t\t(0) <<-- BACK\n";
+                    cout << GREEN << "\nEnter your choice\n";
                     cin >> ach;
                     switch (ach)
                     {
@@ -1085,10 +1090,10 @@ mainpage:
                         while (1)
                         {
                             int sch;
-                            cout << "-----------------------** STUDENT **---------------------------\n";
-                            cout << "\n1. Add student \t\t\t2. Display student records\n3. Remove student Record\t\t4. View index list\n\n\t\t\t(0) <<-- BACK\n";
-                            cout << "--------------------------------------------------------------\n";
-                            cout << "\nEnter your choice\n";
+                            cout << BLUE << "-----------------------** STUDENT **---------------------------\n";
+                            cout << BLUE << "\n1. Add student \t\t\t2. Display student records\n3. Remove student Record\t\t4. View index list\n\n\t\t\t(0) <<-- BACK\n";
+                            cout << RED << "--------------------------------------------------------------\n";
+                            cout << GREEN << "\nEnter your choice\n";
                             cin >> sch;
                             switch (sch)
                             {
@@ -1100,20 +1105,9 @@ mainpage:
                                 break;
                             case 3:
                             {
-                                cout << "Enter student usn :";
+                                cout << GREEN << "Enter student usn :";
                                 cin >> key;
                                 s.remove(key);
-                                cout << "Updated file is :\n";
-
-                                fstream fp;
-                                string line;
-                                fp.open("student.txt");
-                                while (!fp.eof())
-                                {
-                                    getline(fp, line);
-                                    cout << line;
-                                    cout << "\n";
-                                }
                             }
                             break;
                             case 4:
@@ -1132,10 +1126,10 @@ mainpage:
                         while (1)
                         {
                             int n_ch;
-                            cout << "-----------------------** LIBRARIAN **---------------------------\n";
-                            cout << "\n1. Add librarian \t\t\t2. Display librarian records\n3. Remove librarian Record\t\t4. View index list\n\n\t\t\t(0) <<-- BACK\n";
-                            cout << "--------------------------------------------------------------\n";
-                            cout << "\nEnter your choice\n";
+                            cout << GREEN << "-----------------------** LIBRARIAN **---------------------------\n";
+                            cout << GREEN << "\n1. Add librarian \t\t\t2. Display librarian records\n3. Remove librarian Record\t\t4. View index list\n\n\t\t\t(0) <<-- BACK\n";
+                            cout << RED << "--------------------------------------------------------------\n";
+                            cout << GREEN << "\nEnter your choice\n";
                             cin >> n_ch;
                             switch (n_ch)
                             {
@@ -1147,23 +1141,11 @@ mainpage:
                                 l.display_n_record();
                                 break;
                             case 3:
-                            {
                                 cout << "Enter librarian ID :";
                                 cin >> key;
                                 l.remove(key);
-                                cout << "Updated file is :\n";
 
-                                fstream fp;
-                                fp.open("librarian.txt");
-                                while (!fp.eof())
-                                {
-                                    string line;
-                                    getline(fp, line);
-                                    cout << line;
-                                    cout << "\n";
-                                }
-                            }
-                            break;
+                                break;
                             case 4:
                                 l.index_create();
                                 break;
@@ -1180,10 +1162,10 @@ mainpage:
                         while (1)
                         {
                             int b_ch;
-                            cout << "-----------------------** BOOK **---------------------------\n";
-                            cout << "\n1. Add books \t\t\t2.Remove book Record\t\t3. Display book records\t\t4. View index list\n\n\t\t\t(0) <<-- BACK\n";
-                            cout << "--------------------------------------------------------------------\n";
-                            cout << "\nEnter your choice\n";
+                            cout << GREEN << "-----------------------** BOOK **---------------------------\n";
+                            cout << GREEN << "\n1. Add books \t\t\t2.Remove book Record\t\t3. Display book records\t\t4. View index list\n\n\t\t\t(0) <<-- BACK\n";
+                            cout << RED << "--------------------------------------------------------------------\n";
+                            cout << GREEN << "\nEnter your choice\n";
                             cin >> b_ch;
                             switch (b_ch)
                             {
@@ -1197,17 +1179,6 @@ mainpage:
                                 cout << "Enter book ID :";
                                 cin >> key;
                                 b.remove(key);
-                                cout << "Updated file is :\n";
-
-                                fstream fp;
-                                fp.open("book.txt");
-                                while (!fp.eof())
-                                {
-                                    string line;
-                                    getline(fp, line);
-                                    cout << line;
-                                    cout << "\n";
-                                }
                             }
                             break;
                             case 3:
@@ -1220,7 +1191,7 @@ mainpage:
                                 goto admin;
                                 break;
                             default:
-                                cout << "Invalid choice";
+                                cout << RED << "Invalid choice";
                             }
                         }
                         break;
@@ -1229,7 +1200,7 @@ mainpage:
                         goto mainpage;
                         break;
                     default:
-                        cout << "Invalid choice";
+                        cout << RED << "Invalid choice";
                     }
                 }
             }
@@ -1237,18 +1208,18 @@ mainpage:
                 exit(0);
 
         case 2:
-            cout << "Welcome\n";
-            cout << "----------------------\n";
-            cout << "|   STUDENT SECTION     |\n";
-            cout << "----------------------\n";
-            cout << "1. Search book \n2. Display book details\n\n\t\t\t(0) <<--BACK\nEnter your choice \n";
-            cout << "------------------------\n";
+            cout << GREEN << "Welcome\n";
+            cout << GREEN << "----------------------\n";
+            cout << GREEN << "|   STUDENT SECTION     |\n";
+            cout << GREEN << "----------------------\n";
+            cout << GREEN << "1. Search book \n2. Display book details\n\n\t\t\t(0) <<--BACK\nEnter your choice \n";
+            cout << RED << "------------------------\n";
             cin >> sch;
             switch (sch)
             {
             case 1:
                 system("cls");
-                cout << "Enter book name\n";
+                cout << GREEN << "Enter book name\n";
                 cin >> key;
                 b.search(key);
                 break;
@@ -1264,11 +1235,12 @@ mainpage:
             }
             break;
         case 3:
-            cout << "Welcome librarian\n";
+            cout << BLUE << "Welcome librarian\n";
+            cout << RED << "----------------------\n";
+            cout << BLUE << "|   LIBRARIAN SECTION     |\n";
+            cout << BLUE << "|   LIBRARIAN SECTION     |\n";
             cout << "----------------------\n";
-            cout << "|   LIBRARIAN SECTION     |\n";
-            cout << "----------------------\n";
-            cout << "1. Search student Record\n 2.Display student Record\n3. Book  issue \n 4.Display issued book\n 5.Pending Books \n 6.Return Book\nEnter your choice\n\n\t\t\t(0) <<-- BACK\n";
+            cout << GREEN << "1. Search student Record\n 2.Display student Record\n3. Book  issue \n 4.Display issued book\n 5.Pending Books \n 6.Return Book\nEnter your choice\n\n\t\t\t(0) <<-- BACK\n";
             cout << "------------------------\n";
             cin >> nch;
             switch (nch)
