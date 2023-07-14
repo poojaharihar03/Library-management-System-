@@ -1170,7 +1170,7 @@ mainpage:
                             switch (b_ch)
                             {
                             case 1:
-                                system("cls");
+                                system("clear");
                                 b.insert();
                                 break;
 
@@ -1218,7 +1218,7 @@ mainpage:
             switch (sch)
             {
             case 1:
-                system("cls");
+                system("clear");
                 cout << GREEN << "Enter book name\n";
                 cin >> key;
                 b.search(key);
@@ -1246,7 +1246,7 @@ mainpage:
             switch (nch)
             {
             case 1:
-                system("cls");
+                system("clear");
                 cout << "Enter student ID\n";
                 cin >> key;
                 s.search(key);
